@@ -38,9 +38,9 @@ class CRDSetup:
         os.system("bash -c 'echo \"exec /etc/X11/Xsession /usr/bin/xfce4-session\" > /etc/chrome-remote-desktop-session'")
         os.system("apt remove --assume-yes gnome-terminal")
         os.system("apt install --assume-yes xscreensaver")
-        os.system("sudo service lightdm stop")
-        os.system("sudo apt-get install dbus-x11 -y")
-        os.system("service dbus start")
+        os.system("sudo apt purge light-locker")
+        os.system("sudo apt install --reinstall xfce4-screensaver")
+        os.system("systemctl disable lightdm.service")
         print("Installed XFCE4 Desktop Environment !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
     @staticmethod
@@ -57,7 +57,7 @@ class CRDSetup:
 
     @staticmethod
     def changewall():
-        os.system(f"curl -s -L -k -o xfce-verticals.png https://i.postimg.cc/R0VHqGTX/Done.png")
+        os.system(f"curl -s -L -k -o xfce-verticals.png https://raw.githubusercontent.com/Miu-Create/Virtual-Private-Server/refs/heads/main/Done.png")
         current_directory = os.getcwd()
         custom_wallpaper_path = os.path.join(current_directory, "xfce-verticals.png")
         destination_path = '/usr/share/backgrounds/xfce/'
@@ -74,7 +74,7 @@ class CRDSetup:
     def finish(user):
         if Autostart:
             os.makedirs(f"/home/{user}/.config/autostart", exist_ok=True)
-            link = "www.youtube.com/@The_Disala"
+            link = "www.youtube.com/@MiuCuChill"
             colab_autostart = """[Desktop Entry]
             print("Finalizing !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
